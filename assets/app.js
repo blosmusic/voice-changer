@@ -38,7 +38,8 @@ function startVoiceChanger() {
       console.log("mic open");
       // what to do when the mic is open
       //todo - add a visual indicator that the mic is open
-
+      const feedbackDelay = new Tone.FeedbackDelay("8n", 0.5).toDestination();
+      mic.connect(feedbackDelay);
       // check input levels
       // setInterval(processAudioInputLevel, 1000);
     })
