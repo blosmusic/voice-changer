@@ -9,6 +9,7 @@ let inputSource = null;
 let micIsOpen = false;
 
 //FX chain components
+const dist = new Tone.Distortion(0.8).toDestination();
 const chorus = new Tone.Chorus(0, 0, 0).toDestination().start();
 const tremolo = new Tone.Tremolo(6, 0.65).toDestination().start();
 const feedbackDelay = new Tone.FeedbackDelay("8n", 0.5).toDestination();

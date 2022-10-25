@@ -20,6 +20,45 @@
                 <button class="voice-start-toggle" id="voice-start-toggle">START</button>
             </div>
         </div>
+        <div class="effect-container" id="effect-container">
+            <div class="fx-section" id="distortion-container">
+                <h3>Distortion</h3>
+                <p class="fx-description">Distortion</p>
+                <input class="distortion-input-slider" id="distortion-input-slider" type="range" min="0" max="1"
+                    value="0.8" step="0.1">
+            </div>
+            <div class="fx-section" id="chorus-container">
+                <h3>Chorus</h3>
+                <p class="fx-description">Frequency</p>
+                <input class="chorus-input-slider" id="chorus-input-slider" type="range" min="1" max="50"
+                    value="8" step="1">
+                <p class="fx-description">Delay</p>
+                <input class="chorus-input-slider" id="chorus-input-slider" type="range" min="0.5" max="50"
+                    value="3.5" step="0.5">
+                <p class="fx-description">Depth</p>
+                <input class="chorus-input-slider" id="chorus-input-slider" type="range" min="0.1" max="1"
+                    value="0.5" step="0.1">
+            </div>
+            <div class="fx-section" id="tremolo-container">
+                <h3>Tremolo</h3>
+                <p class="fx-description">Frequency</p>
+                <input class="tremolo-input-slider" id="tremolo-input-slider" type="range" min="0" max="50" value="8"
+                    step="1">
+                <p class="fx-description">Depth</p>
+                <input class="tremolo-input-slider" id="tremolo-input-slider" type="range" min="0" max="1" value="0.75"
+                    step="0.1">
+            </div>
+            <div class="fx-section" id="delay-container">
+                <h3>Delay</h3>
+                <!-- todo add in time values in notation -->
+                <p class="fx-description">Time</p>
+                <input class="delay-input-slider" id="delay-input-slider" type="range" min="0" max="1" value=""
+                    step="0.01">
+                <p class="fx-description">Feedback</p>
+                <input class="delay-input-slider" id="delay-input-slider" type="range" min="0" max="1" value="0.8"
+                    step="0.1">
+            </div>
+        </div>
     </div>
 </body>
 <script src="./assets/app.js"></script>

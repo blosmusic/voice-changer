@@ -29,6 +29,15 @@ h2 {
     text-transform: uppercase;
 }
 
+h3 {
+    font-size: 25px;
+    font-weight: 700;
+    color: #262626;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
 p {
     font-size: 20px;
     font-weight: 400;
@@ -36,6 +45,13 @@ p {
     text-align: center;
     margin: 20px 0;
     padding: 10px;
+}
+
+.fx-description {
+    font-size: 16px;
+    font-weight: 500;
+    color: #262626;
+    padding: 0;
 }
 
 .app-container {
@@ -50,7 +66,6 @@ p {
     box-shadow: 0 0 15px 0 #00ff91;
     max-width: 600px;
     padding: 20px;
-    justify-content: center;
 }
 
 .voice-changer-container {
@@ -94,4 +109,46 @@ p {
     border: 3px solid #333;
     background-color: darkred;
     text-align: center;
+}
+
+.effect-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 15px;
+}
+
+.fx-section {
+    width: 150px;
+    height: 280px;
+    display: inline-block;
+    vertical-align: text-top;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #333;
+    border-radius: 10%;
+    padding: 20px;
+    margin: 20px 10px;
+}
+
+#distortion-container{
+    background-color: green;
+    color: #fdfdfd;
+}
+
+#delay-container {
+    background-color: lightgray;
+}
+
+#reverb-container {
+    background-color: darkgray;
+}
+
+#chorus-container {
+    background-color: greenyellow;
+}
+
+#tremolo-container {
+    background-color: purple;
 }
