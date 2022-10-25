@@ -112,7 +112,7 @@ p {
 }
 
 .effect-container {
-    display: flex;
+    display: block-inline;
     justify-content: center;
     align-items: center;
     margin: 20px 15px;
