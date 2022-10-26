@@ -9,9 +9,9 @@ let inputSource = null;
 let micIsOpen = false;
 
 //FX chain components
-const dist = new Tone.Distortion(0.8).toDestination();
-const chorus = new Tone.Chorus(0, 0, 0).toDestination().start();
-const tremolo = new Tone.Tremolo(6, 0.65).toDestination().start();
+const dist = new Tone.Distortion(0).toDestination();
+const chorus = new Tone.Chorus(10, 0.5, 0.6).toDestination().start();
+const tremolo = new Tone.Tremolo(8, 0.4).toDestination().start();
 const feedbackDelay = new Tone.FeedbackDelay("8n", 0.5).toDestination();
 
 // read input level - check if mic is open
@@ -46,7 +46,7 @@ function startVoiceChanger() {
       //todo - add a visual indicator that the mic is open
       
       //chain the mic to the voice changer
-      mic.chain(chorus, tremolo, feedbackDelay).start();
+      mic.chain(dist, chorus, tremolo, feedbackDelay).start();
       // check input levels
       // setInterval(processAudioInputLevel, 1000);
     })
