@@ -10,9 +10,9 @@ let micIsOpen = false;
 
 //FX chain components
 // const dist = new Tone.Distortion(0).toDestination();
-// const chorus = new Tone.Chorus(0, 0, 0).toDestination().start();
-// const tremolo = new Tone.Tremolo(0, 0).toDestination().start();
-// const feedbackDelay = new Tone.FeedbackDelay(0, 0).toDestination();
+// const chorus = new Tone.Chorus(10, 0.5, 0.6).toDestination().start();
+// const tremolo = new Tone.Tremolo(8, 0.4).toDestination().start();
+// const feedbackDelay = new Tone.FeedbackDelay("8n", 0.5).toDestination();
 
 // read input level - check if mic is open
 function processAudioInputLevel() {
@@ -48,7 +48,7 @@ function startVoiceChanger() {
       //chain the mic to the voice changer
       mic.chain(dist, chorus, tremolo, feedbackDelay).start();
       // check input levels
-      // setInterval(processAudioInputLevel, 1000);
+      setInterval(processAudioInputLevel, 1000);
     })
     .catch((e) => {
       // promise is rejected when the user doesn't have or allow mic access

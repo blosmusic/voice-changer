@@ -24,6 +24,6 @@ delayFeedbackSlider.oninput = function () {
 };
 
 function updateDelaySliders() {
-  delay.delayTime = delayFeedbackValue.innerHTML;
-  delay.feedback = delayTimeValue.innerHTML;
+  feedbackDelay.delayTime = delayFeedbackValue.innerHTML;
+  feedbackDelay.feedback = delayTimeValue.innerHTML;
 }
