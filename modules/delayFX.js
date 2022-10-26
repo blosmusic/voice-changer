@@ -4,11 +4,11 @@ delayTimeValue.innerHTML = delayTimeSlider.value;
 
 let delayFeedbackSlider = document.getElementById("delay-feedback");
 let delayFeedbackValue = document.getElementById("delay-feedback-value");
-delayFeedbackValue.innerHTML = delayDelaySlider.value;
+delayFeedbackValue.innerHTML = delayFeedbackSlider.value;
 
 const feedbackDelay = new Tone.FeedbackDelay(
   delayTimeSlider.value,
-  delayDelaySlider.value
+  delayFeedbackValue.value
 ).toDestination();
 
 delayTimeSlider.oninput = function () {
@@ -17,7 +17,7 @@ delayTimeSlider.oninput = function () {
   updateDelaySliders();
 };
 
-delayDelaySlider.oninput = function () {
+delayFeedbackSlider.oninput = function () {
   delayFeedbackValue.innerHTML = this.value;
   console.log("Slider value: ", delayFeedbackValue.innerHTML);
   updateDelaySliders();
