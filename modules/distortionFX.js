@@ -7,9 +7,9 @@ const dist = new Tone.Distortion(distortionLevelSlider.value).toDestination();
 distortionLevelSlider.oninput = function () {
   distortionLevelValue.innerHTML = this.value;
   console.log("Slider value: ", distortionLevelValue.innerHTML);
-  updateSlider();
+  updateDistortionSlider();
 };
 
-function updateSlider() {
+function updateDistortionSlider() {
   dist.distortion = distortionLevelValue.innerHTML;
 }
