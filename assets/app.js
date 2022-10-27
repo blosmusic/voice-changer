@@ -48,7 +48,7 @@ function startVoiceChanger() {
       //chain the mic to the voice changer
       mic.chain(dist, chorus, tremolo, feedbackDelay).start();
       // check input levels
-      setInterval(processAudioInputLevel, 1000);
+      // setInterval(processAudioInputLevel, 1000);
     })
     .catch((e) => {
       // promise is rejected when the user doesn't have or allow mic access
