@@ -68,7 +68,7 @@ p {
     box-shadow: 0 0 15px 0 #00ff91;
     max-width: 600px;
     padding: 20px;
-    
+
 }
 
 .voice-changer-container {
@@ -135,7 +135,11 @@ p {
     text-transform: uppercase;
 }
 
-#distortion-container{
+#pitch-container {
+    background-color: rosybrown;
+}
+
+#distortion-container {
     background-color: green;
 }
 
