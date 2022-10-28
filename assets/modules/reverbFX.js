@@ -1,15 +1,15 @@
-let reverbDecaySlider = document.getElementById("reverb-level");
-let reverbDecayValue = document.getElementById("reverb-level-value");
-reverbDecayValue.innerHTML = reverbDecaySlider.value;
+let reverbSizeSlider = document.getElementById("reverb-size");
+let reverbSizeValue = document.getElementById("reverb-size-value");
+reverbSizeValue.innerHTML = reverbSizeSlider.value;
 
-const reverb = new Tone.Reverb(reverbDecaySlider.value).toDestination();
+const reverb = new Tone.JCReverb(reverbSizeSlider.value).toDestination();
 
-reverbDecaySlider.oninput = function () {
-  reverbDecayValue.innerHTML = this.value;
-  console.log("Slider value: ", reverbDecayValue.innerHTML);
+reverbSizeSlider.oninput = function () {
+  reverbSizeValue.innerHTML = this.value;
+  console.log("Slider value: ", reverbSizeValue.innerHTML);
   updateReverbSliders();
 };
 
 function updateReverbSliders() {
-  reverb.decay = reverbDecayValue.innerHTML;
+  reverb.roomSize = reverbSizeValue.innerHTML;
 }
