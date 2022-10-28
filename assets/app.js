@@ -18,15 +18,7 @@ const meter = new Tone.Meter(0.8);
 const micFFT = new Tone.FFT(32);
 let inputLevelValueRead = null;
 
-const mic = new Tone.UserMedia(); //.chain(micFFT, meter);
-
-// const shift = new Tone.FrequencyShifter(440).toDestination();
-// const dist = new Tone.Distortion(0.8).toDestination();
-// const crusher = new Tone.BitCrusher(4).toDestination();
-// const chorus = new Tone.Chorus(10, 0.5, 0.6).toDestination().start();
-// const tremolo = new Tone.Tremolo(8, 0.4).toDestination().start();
-// const feedbackDelay = new Tone.FeedbackDelay("8n", 0.5).toDestination();
-// const reverb = new Tone.Reverb(1).toDestination();
+const mic = new Tone.UserMedia().chain(micFFT, meter);
 
 // read input level - check if mic is open
 function processAudioInputLevel() {
