@@ -6,6 +6,10 @@
 // import { tremolo } from "./modules/tremoloFX.js";
 // import { feedbackDelay } from "./modules/delayFX.js";
 
+document.querySelector("body").addEventListener("click", async () => {
+  await Tone.start();
+  console.log("context started");
+});
 
 let voiceStartToggle = document.getElementById("voice-start-toggle");
 let micIndicator = document.getElementById("mic-indication");
@@ -14,7 +18,7 @@ const meter = new Tone.Meter(0.8);
 const micFFT = new Tone.FFT(32);
 let inputLevelValueRead = null;
 
-const mic = new Tone.UserMedia();//.chain(micFFT, meter);
+const mic = new Tone.UserMedia(); //.chain(micFFT, meter);
 
 // const shift = new Tone.FrequencyShifter(440).toDestination();
 // const dist = new Tone.Distortion(0.8).toDestination();
@@ -52,9 +56,7 @@ function startVoiceChanger() {
       // promise resolves when input is available
       console.log("mic open");
       // what to do when the mic is open
-      mic
-        .chain(shift, dist, chorus, tremolo, feedbackDelay, reverb)
-        .Tone.start();
+      mic.chain(shift, dist, chorus, tremolo, feedbackDelay, reverb).start();
       // check input levels
       // setInterval(processAudioInputLevel, 1000);
     })
