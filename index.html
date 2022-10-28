@@ -28,8 +28,12 @@
                 <h3>Distortion</h3>
                 <p class="fx-description">Distortion</p>
                 <span id="distortion-level-value"></span>
-                <input class="distortion-level slider" id="distortion-level" type="range" min="0" max="1.0"
+                <input class="distortion-level slider" id="distortion-level" type="range" min="0" max="1"
                     value="0.8" step="0.01">
+                <p class="fx-description">Bit Crusher</p>
+                <span id="bitcrusher-level-value"></span>
+                <input class="bitcrusher-level slider" id="bitcrusher-level" type="range" min="0" max="8"
+                    value="4" step="0.01">
             </div>
 
             <div class="fx-section" id="chorus-container">
@@ -76,9 +80,9 @@
     </div>
 </body>
 <script src="./assets/app.js"></script>
-<script src="./modules/distortionFX.js"></script>
-<script src="./modules/chorusFX.js"></script>
-<script src="./modules/tremoloFX.js"></script>
-<script src="./modules/delayFX.js"></script>
+<script src="./assets/modules/distortionFX.js"></script>
+<script src="./assets/modules/chorusFX.js"></script>
+<script src="./assets/modules/tremoloFX.js"></script>
+<script src="./assets/modules/delayFX.js"></script>
 
 </html>

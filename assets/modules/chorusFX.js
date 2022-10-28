@@ -41,3 +41,5 @@ function updateChorusSliders() {
   chorus.delayTime = chorusDelayValue.innerHTML;
   chorus.depth = chorusDepthValue.innerHTML;
 }
+
+// export { chorus };

@@ -1,15 +1,23 @@
+// import FX modules
+// todo figure out importing modules
+// import { dist } from "./modules/distortionFX.js";
+// import { crusher } from "./modules/distortionFX.js";
+// import { chorus } from "./modules/chorusFX.js";
+// import { tremolo } from "./modules/tremoloFX.js";
+// import { feedbackDelay } from "./modules/delayFX.js";
+
+
 let voiceStartToggle = document.getElementById("voice-start-toggle");
 let micIndicator = document.getElementById("mic-indication");
 // get microphone input
 const meter = new Tone.Meter(0.8);
 const micFFT = new Tone.FFT(32);
-const mic = new Tone.UserMedia().chain(micFFT, meter);
 let inputLevelValueRead = null;
-let inputSource = null;
-let micIsOpen = false;
 
-//FX chain components
-// const dist = new Tone.Distortion(0).toDestination();
+const mic = new Tone.UserMedia();//.chain(micFFT, meter);
+
+// const dist = new Tone.Distortion(0.8).toDestination();
+// const crusher = new Tone.BitCrusher(4).toDestination();
 // const chorus = new Tone.Chorus(10, 0.5, 0.6).toDestination().start();
 // const tremolo = new Tone.Tremolo(8, 0.4).toDestination().start();
 // const feedbackDelay = new Tone.FeedbackDelay("8n", 0.5).toDestination();
@@ -36,7 +44,6 @@ function startVoiceChanger() {
   console.log("mic started");
   micIndicator.style.backgroundColor = "red";
   micIndicator.style.boxShadow = "0 0 0 1.5px red";
-  // micIsOpen = true;
   mic
     .open()
     .then(() => {
@@ -46,7 +53,7 @@ function startVoiceChanger() {
       //todo - add a visual indicator that the mic is open
       
       //chain the mic to the voice changer
-      mic.chain(dist, chorus, tremolo, feedbackDelay).start();
+      mic.chain(dist, crusher, chorus, tremolo, feedbackDelay).start();
       // check input levels
       // setInterval(processAudioInputLevel, 1000);
     })
@@ -62,5 +69,4 @@ function stopVoiceChanger() {
   micIndicator.style.backgroundColor = "darkred";
   micIndicator.style.boxShadow = "0 0 0 0 #333";
   mic.close();
-  // micIsOpen = false;
 }

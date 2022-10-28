@@ -29,3 +29,5 @@ const tremolo = new Tone.Tremolo(
     tremolo.frequency = tremoloFrequencyValue.innerHTML;
     tremolo.depth = tremoloDepthValue.innerHTML;
   }
+
+//  export { tremolo };

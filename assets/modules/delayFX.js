@@ -27,3 +27,5 @@ function updateDelaySliders() {
   feedbackDelay.delayTime = delayFeedbackValue.innerHTML;
   feedbackDelay.feedback = delayTimeValue.innerHTML;
 }
+
+// export { feedbackDelay };
