@@ -51,13 +51,14 @@ function startVoiceChanger() {
     .then(() => {
       // promise resolves when input is available
       console.log("mic open");
+      // Tone.start();
       // what to do when the mic is open
       //todo - add a visual indicator that the mic is open
       
       //chain the mic to the voice changer
       mic
         .chain(shift, dist, chorus, tremolo, feedbackDelay, reverb)
-        .start();
+        .Tone.start();
       // check input levels
       // setInterval(processAudioInputLevel, 1000);
     })
