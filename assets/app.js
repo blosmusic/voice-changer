@@ -22,7 +22,7 @@ const mic = new Tone.UserMedia();//.chain(micFFT, meter);
 // const chorus = new Tone.Chorus(10, 0.5, 0.6).toDestination().start();
 // const tremolo = new Tone.Tremolo(8, 0.4).toDestination().start();
 // const feedbackDelay = new Tone.FeedbackDelay("8n", 0.5).toDestination();
-const reverb = new Tone.Reverb(0.6).toDestination();
+// const reverb = new Tone.Reverb(1).toDestination();
 
 // read input level - check if mic is open
 function processAudioInputLevel() {
@@ -56,7 +56,7 @@ function startVoiceChanger() {
       
       //chain the mic to the voice changer
       mic
-        .chain(shift, dist, reverb)
+        .chain(shift, dist, chorus, tremolo, feedbackDelay, reverb)
         .start();
       // check input levels
       // setInterval(processAudioInputLevel, 1000);

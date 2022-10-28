@@ -143,14 +143,6 @@ p {
     background-color: green;
 }
 
-#delay-container {
-    background-color: lightgray;
-}
-
-#reverb-container {
-    background-color: darkgray;
-}
-
 #chorus-container {
     background-color: greenyellow;
 }
@@ -158,6 +150,14 @@ p {
 #tremolo-container {
     background-color: purple;
 }
+#delay-container {
+    background-color: pink;
+}
+
+#reverb-container {
+    background-color: darkgray;
+}
+
 
 span {
     font-size: 22px;
