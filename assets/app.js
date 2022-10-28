@@ -6,9 +6,10 @@
 // import { tremolo } from "./modules/tremoloFX.js";
 // import { feedbackDelay } from "./modules/delayFX.js";
 
-document.querySelector("body").addEventListener("click", async () => {
+document.querySelector("h4").addEventListener("click", async () => {
   await Tone.start();
-  console.log("context started");
+  document.querySelector("h4").innerText = "Permission Granted";
+  console.log("audio is ready");
 });
 
 let voiceStartToggle = document.getElementById("voice-start-toggle");
