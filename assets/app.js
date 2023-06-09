@@ -10,8 +10,8 @@ let micIndicator = document.getElementById("mic-indication");
 const meter = new Tone.Meter(0.8);
 const micFFT = new Tone.FFT(32);
 let inputLevelValueRead = null;
-
-const mic = new Tone.UserMedia().chain(micFFT, meter);
+const destination = Tone.Destination;
+const mic = new Tone.UserMedia();
 
 // read input level - check if mic is open
 function processAudioInputLevel() {
@@ -41,7 +41,19 @@ function startVoiceChanger() {
       // promise resolves when input is available
       console.log("mic open");
       // what to do when the mic is open
-      mic.chain(shift, dist, chorus, tremolo, feedbackDelay, reverb).start();
+      mic
+        .chain(
+          shift,
+          dist,
+          crusher,
+          chorus,
+          tremolo,
+          feedbackDelay,
+          reverb,
+          meter,
+          destination
+        )
+        .start();
       // check input levels
       // setInterval(processAudioInputLevel, 1000);
     })
@@ -59,15 +71,12 @@ function stopVoiceChanger() {
   mic.close();
 }
 
-
 // Pitch Shifter
 let pitchShifterSlider = document.getElementById("pitch-level");
 let pitchShifterValue = document.getElementById("pitch-level-value");
 pitchShifterValue.innerHTML = pitchShifterSlider.value;
 
-const shift = new Tone.FrequencyShifter(
-  pitchShifterSlider.value
-).toDestination();
+const shift = new Tone.FrequencyShifter(pitchShifterSlider.value);
 
 pitchShifterSlider.oninput = function () {
   pitchShifterValue.innerHTML = this.value;
@@ -88,10 +97,8 @@ let bitCrusherLevelSlider = document.getElementById("bitcrusher-level");
 let bitCrusherLevelValue = document.getElementById("bitcrusher-level-value");
 bitCrusherLevelValue.innerHTML = bitCrusherLevelSlider.value;
 
-const dist = new Tone.Distortion(distortionLevelSlider.value).toDestination();
-const crusher = new Tone.BitCrusher(
-  bitCrusherLevelSlider.value
-).toDestination();
+const dist = new Tone.Distortion(distortionLevelSlider.value);
+const crusher = new Tone.BitCrusher(bitCrusherLevelSlider.value);
 
 distortionLevelSlider.oninput = function () {
   distortionLevelValue.innerHTML = this.value;
@@ -127,9 +134,7 @@ const chorus = new Tone.Chorus(
   chorusFrequencySlider.value,
   chorusDelaySlider.value,
   chorusDepthSlider.value
-)
-  .toDestination()
-  .start();
+);
 
 chorusFrequencySlider.oninput = function () {
   chorusFrequencyValue.innerHTML = this.value;
@@ -167,9 +172,7 @@ tremoloDepthValue.innerHTML = tremoloDepthSlider.value;
 const tremolo = new Tone.Tremolo(
   tremoloFrequencySlider.value,
   tremoloDepthSlider.value
-)
-  .toDestination()
-  .start();
+);
 
 tremoloFrequencySlider.oninput = function () {
   tremoloFrequencyValue.innerHTML = this.value;
@@ -200,7 +203,7 @@ delayFeedbackValue.innerHTML = delayFeedbackSlider.value;
 const feedbackDelay = new Tone.FeedbackDelay(
   delayTimeSlider.value,
   delayFeedbackSlider.value
-).toDestination();
+);
 
 delayTimeSlider.oninput = function () {
   delayTimeValue.innerHTML = this.value;
@@ -224,7 +227,7 @@ let reverbSizeSlider = document.getElementById("reverb-size");
 let reverbSizeValue = document.getElementById("reverb-size-value");
 reverbSizeValue.innerHTML = reverbSizeSlider.value;
 
-const reverb = new Tone.JCReverb(reverbSizeSlider.value).toDestination();
+const reverb = new Tone.JCReverb(reverbSizeSlider.value);
 
 reverbSizeSlider.oninput = function () {
   reverbSizeValue.innerHTML = this.value;
